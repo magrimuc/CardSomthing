@@ -18,6 +18,8 @@ function shuffle() {
 }
 
 function selectCard() {
+	$("#target").attr("item2", $(this).data("pattern"));
+	document.getElementById("target").submit();
 	if ($(".card-flipped").size() > 1) {
 		return;
 	}
@@ -108,8 +110,8 @@ $(function(){
 	}
 	$('#cards').children().each(function(index) {
 		$(this).css({
-			'left': ($(this).width() + 20) * (index % 5),
-			'top': ($(this).height() + 20) * Math.floor(index / 5)
+			'left': ($(this).width() + 20) * (index % 6) -100,
+			'top': ($(this).height() + 20) * Math.floor(index / 6) + 80
 		});
 		var pattern = matchingGame.deck.pop();
 		$(this).find(".back").addClass(pattern);
